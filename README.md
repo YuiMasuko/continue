@@ -45,4 +45,4 @@ https://cacoo.com/diagrams/U2MXtR15Ayg0JOC8/FECAC
 
 
 ## ワイヤーフレーム
-![screen_transition](https://user-images.githubusercontent.com/86764911/131832909-ebbceba3-5fe9-4eda-b7e0-e62f34d410e3.jpeg)
+![screen_transition](https://user-images.githubusercontent.com/86764911/131833652-ecb351a7-82ca-4d2e-b4af-c81ddbd41128.png)
