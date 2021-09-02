@@ -42,8 +42,9 @@ https://cacoo.com/diagrams/U2MXtR15Ayg0JOC8/FECAC
 
 ## ER図
 ---
-![ER図](https://gyazo.com/d4c1b2e1ec6aeb222af956b53d13ccd2)
+![ER図](https://user-images.githubusercontent.com/86764911/131804192-f67357a1-d1b2-4c86-b220-498ac79f343b.jpeg)
+
 
 ## ワイヤーフレーム
 ---
-![ワイヤーフレーム](https://drive.google.com/file/d/1xzCL609HNHuQyrrvlMXJRn1XY6lsL6mA/view?usp=sharing)
+![screen_transition](https://user-images.githubusercontent.com/86764911/131804292-6090d4fb-e518-423a-ae67-393505c30fd3.jpeg)
