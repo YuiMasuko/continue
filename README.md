@@ -3,8 +3,8 @@
 ## 「Continue」概要
 **大切な人への日常共有アプリケーション**
 
-会いたい人に会えないコロナ禍のいま、大切な人と疎遠になっていませんか？
-「Continue」は家族や親友など、"ずっと繋がっていたい大切な人のみ"に日常を共有し、
+会いたい人に会えないコロナ禍のいま、大切な人と疎遠になっていませんか？<br>
+「Continue」は家族や親友など、"ずっと繋がっていたい大切な人のみ"に日常を共有し、<br>
 離れていてもコミュニケーションが活性化されるアプリです。
 
 ## 開発言語
@@ -45,4 +45,4 @@ https://cacoo.com/diagrams/U2MXtR15Ayg0JOC8/FECAC
 
 
 ## ワイヤーフレーム
-![screen_transition](https://user-images.githubusercontent.com/86764911/131804292-6090d4fb-e518-423a-ae67-393505c30fd3.jpeg)
+![screen_transition](https://user-images.githubusercontent.com/86764911/131832909-ebbceba3-5fe9-4eda-b7e0-e62f34d410e3.jpeg)
