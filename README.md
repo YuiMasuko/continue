@@ -19,7 +19,6 @@
 - kaminari
 
 ## カリキュラム外の技術
-- Active Storage
 - ransack
 
 ## 実行手順
@@ -41,8 +40,8 @@ https://docs.google.com/spreadsheets/d/1q7_Z7G0C1w2KU-YCMGMe_lkDLojBSGmOFablyPZ9
 https://cacoo.com/diagrams/U2MXtR15Ayg0JOC8/FECAC
 
 ## ER図
-![ER図](https://user-images.githubusercontent.com/86764911/131832683-bb8b33da-0b6f-40a5-b8bc-af74f2fd268a.jpeg)
+![er](https://user-images.githubusercontent.com/86764911/131963689-fb5b818b-fe85-4b28-bba8-9b3b37f33270.png)
 
 
 ## ワイヤーフレーム
-![screen_transition](https://user-images.githubusercontent.com/86764911/131833652-ecb351a7-82ca-4d2e-b4af-c81ddbd41128.png)
+![screen_transition](https://user-images.githubusercontent.com/86764911/131963835-2b00cf1e-d745-4a27-a1fc-be9e4144fc02.png)
