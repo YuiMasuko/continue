@@ -4,8 +4,10 @@
 **大切な人への日常共有アプリケーション**
 
 会いたい人に会えないコロナ禍のいま、大切な人と疎遠になっていませんか？<br>
-「Continue」は家族や親友など、"ずっと繋がっていたい大切な人のみ"に日常を共有し、<br>
-離れていてもコミュニケーションが活性化されるアプリです。
+
+「Continue」は家族や親友など、<br>
+<u>ずっと繋がっていたい大切な人のみ</u>に日常を共有し、<br>
+離れていても、コミュニケーションが活性化されるアプリです。
 
 ## 開発言語
 - Ruby2.6.5
@@ -40,7 +42,7 @@ https://docs.google.com/spreadsheets/d/1q7_Z7G0C1w2KU-YCMGMe_lkDLojBSGmOFablyPZ9
 https://cacoo.com/diagrams/U2MXtR15Ayg0JOC8/FECAC
 
 ## ER図
-![er](https://user-images.githubusercontent.com/86764911/131963689-fb5b818b-fe85-4b28-bba8-9b3b37f33270.png)
+![er](https://user-images.githubusercontent.com/86764911/132125461-4fb39ca3-bf36-49cf-a4a1-1d66447d1070.png)
 
 
 ## ワイヤーフレーム
