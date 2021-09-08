@@ -46,5 +46,5 @@ https://cacoo.com/diagrams/U2MXtR15Ayg0JOC8/FECAC
 ![er](https://user-images.githubusercontent.com/86764911/132125461-4fb39ca3-bf36-49cf-a4a1-1d66447d1070.png)
 
 
-## ワイヤーフレーム
-![screen_transition](https://user-images.githubusercontent.com/86764911/131963835-2b00cf1e-d745-4a27-a1fc-be9e4144fc02.png)
+## 画面遷移図
+![screen_transition](https://user-images.githubusercontent.com/86764911/132432206-5805369b-8a3e-448f-8dc9-4c7ed9a3258f.png)
