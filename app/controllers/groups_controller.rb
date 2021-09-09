@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_group, only: %i[ show edit update destroy ]
 
   # GET /groups or /groups.json
@@ -23,14 +24,17 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
 
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to @group, notice: "Group was successfully created." }
-        format.json { render :show, status: :created, location: @group }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+    # respond_to do |format|
+    if @group.save
+      @group.invite_member(current_user)
+      redirect_to @group, notice: 'グループを作成しました！'
+      # format.html { redirect_to @group, notice: "Group was successfully created." }
+      # format.json { render :show, status: :created, location: @group }
+    else
+      flash.now[:error] = 'グループを作成できませんでした'
+    render :new
+      # format.html { render :new, status: :unprocessable_entity }
+      # format.json { render json: @group.errors, status: :unprocessable_entity }
     end
   end
 

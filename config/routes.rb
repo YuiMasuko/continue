@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'groups#index'
   resources :groups do
     resources :assigns, only: %w(create destroy)
   end
