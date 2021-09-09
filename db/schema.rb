@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_123537) do
+ActiveRecord::Schema.define(version: 2021_09_09_132125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assigns", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_assigns_on_group_id"
+    t.index ["user_id"], name: "index_assigns_on_user_id"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string "name", null: false
@@ -41,4 +50,6 @@ ActiveRecord::Schema.define(version: 2021_09_09_123537) do
     t.index ["specification"], name: "index_users_on_specification", unique: true
   end
 
+  add_foreign_key "assigns", "groups"
+  add_foreign_key "assigns", "users"
 end
