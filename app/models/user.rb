@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 }
   validates :specification, presence: true, length: { in: 6..10 }, format: { with: VALID_SPECIFICATION_REGEX, message: "は半角6~10文字で英数字それぞれ１文字以上含む必要があります"}
   validates :birthday, presence: true
+
+  has_many :teams, through: :assigns
 end
