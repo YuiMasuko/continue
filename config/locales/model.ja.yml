@@ -10,6 +10,9 @@ ja:
       user:
         title: タイトル
         name: 名前
+        specification: ユーザーID
+        birthday: 誕生日
+        icon: ユーザー画像
         email: メールアドレス
         current_password: 現在のパスワード
         password: パスワード

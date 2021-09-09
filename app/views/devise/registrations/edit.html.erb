@@ -4,8 +4,28 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :specification %><br />
+    <%= f.text_field :specification, autofocus: true, autocomplete: "specification" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_select :birthday, autofocus: true, autocomplete: "birthday" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :icon %><br />
+    <%= f.file_field :icon, autofocus: true, autocomplete: "specification" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
