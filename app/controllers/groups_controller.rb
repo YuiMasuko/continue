@@ -2,72 +2,51 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, only: %i[ show edit update destroy ]
 
-  # GET /groups or /groups.json
   def index
     @groups = Group.all
   end
 
-  # GET /groups/1 or /groups/1.json
   def show
   end
 
-  # GET /groups/new
   def new
     @group = Group.new
   end
 
-  # GET /groups/1/edit
   def edit
   end
 
-  # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
-
-    # respond_to do |format|
     if @group.save
       @group.invite_member(current_user)
       redirect_to @group, notice: 'グループを作成しました！'
-      # format.html { redirect_to @group, notice: "Group was successfully created." }
-      # format.json { render :show, status: :created, location: @group }
     else
       flash.now[:error] = 'グループを作成できませんでした'
-    render :new
-      # format.html { render :new, status: :unprocessable_entity }
-      # format.json { render json: @group.errors, status: :unprocessable_entity }
+      render :new
     end
   end
 
-  # PATCH/PUT /groups/1 or /groups/1.json
   def update
-    respond_to do |format|
-      if @group.update(group_params)
-        format.html { redirect_to @group, notice: "Group was successfully updated." }
-        format.json { render :show, status: :ok, location: @group }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+    if @group.update(group_params)
+      redirect_to @group, notice: 'グループ情報を編集しました！'
+    else
+      flash.now[:error] = 'グループ情報を編集できませんでした'
+      render :new
     end
   end
 
-  # DELETE /groups/1 or /groups/1.json
   def destroy
     @group.destroy
-    respond_to do |format|
-      format.html { redirect_to groups_url, notice: "Group was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to groups_url, notice: 'グループを削除しました！'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    end
+  def set_group
+    @group = Group.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def group_params
-      params.require(:group).permit(:name, :image)
-    end
+  def group_params
+    params.fetch(:group, {}).permit(:name, :image)
+  end
 end
