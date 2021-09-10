@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_group, only: %i[ show edit update destroy ]
+  before_action :set_group, only: %i[ show edit update destroy invite]
 
   def index
     @groups = Group.all
@@ -39,6 +39,10 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
     redirect_to groups_url, notice: 'グループを削除しました！'
+  end
+
+  def invite
+
   end
 
   private
