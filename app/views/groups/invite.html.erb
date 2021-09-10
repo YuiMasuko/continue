@@ -1,0 +1,8 @@
+<h1>メンバーを招待しよう！</h1>
+<div>
+  <%= form_with model: :assign, scope: :post, url: group_assigns_path(@group), local: true do |form| %>
+    <%= text_field_tag :specification, '', { class: 'form-control', placeholder: '招待したいユーザーのIDを入力してください' } %>
+    <%= text_field_tag :specification, '', { class: 'form-control', placeholder: '招待したいユーザーのIDを入力してください' } %>
+    <button type="submit" class="btn btn-info btn-flat">招待する</button>
+  <% end %>
+</div>
