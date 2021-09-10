@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'groups#index'
   resources :groups do
-    resources :assigns, only: %w(create destroy)
+    resources :assigns, only: [:create, :destroy]
   end
   devise_for :users
 
