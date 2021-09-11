@@ -1,0 +1,11 @@
+<div>
+  <p><%= @user.name %>のマイページ</p>
+
+  <% @groups.each do |group| %>
+    <tr>
+      <td><%= group.name %></td>
+      <td><%= group.image %></td>
+      <td><%= group.members %></td>
+    </tr>
+  <% end %>
+</div>

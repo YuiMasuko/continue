@@ -2,6 +2,7 @@ class AssignsController < ApplicationController
   before_action :authenticate_user!
 
   def create
+    #招待機能
     group = Group.find(params[:group_id])
     user = User.find_by(specification: params[:specification])
     if user && user.birthday.strftime('%Y-%m-%d') == params[:birthday]
