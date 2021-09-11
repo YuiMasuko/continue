@@ -1,13 +1,30 @@
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<div>
+  <%= @group.name %>グループ
 
-<p>
-  <strong>Image:</strong>
-  <%= @group.image %>
-</p>
+  <div>
+  </div>
 
-<%= link_to 'Invite', invite_group_path(@group) %> |
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+  <div>
+    <%= @group.image %>
+    <%= link_to 'グループ編集', edit_group_path(@group) %>
+  </div>
+
+  <div>
+    <table>
+      <% @group.assigns.each do |assign| %>
+        <tr>
+          <td><%= assign.user.icon %></td>
+          <td><%= assign.user.name %></td>
+          <% if assign.user == current_user %>
+            <td><%= link_to 'グループ退会', group_assign_path(@group, assign), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div>
+    <%= link_to 'Invite', invite_group_path(@group) %>
+  </div>
+  <%= link_to 'Edit', edit_group_path(@group) %> |
+  <%= link_to 'Back', groups_path %>
+</div>
