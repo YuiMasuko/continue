@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   root 'groups#index'
   resources :groups do
     get 'invite', on: :member
