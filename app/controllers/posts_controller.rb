@@ -19,16 +19,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    @post = current_user.posts.build(post_params)
+    @post.group = Group.find(params[:group_id])
+    if @post.save
+      redirect_to group_path(@post.group.id), notice: '日常を投稿しました！'
+    else
+      flash.now[:error] = '投稿できませんでした'
+      render :new
     end
   end
 
@@ -46,20 +43,16 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to group_path(@post.group.id), notice: '投稿を削除しました！'
   end
 
   private
   def set_post
+    binding.pry
     @post = Post.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:event_on, :content, :image, :user_id, :group_id)
+    params.fetch(:post, {}).permit(:event_on, :content, :image)
   end
-
-
 end
