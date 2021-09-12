@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :posts
   root 'groups#index'
   resources :groups do
     get 'invite', on: :member
     resources :assigns, only: [:create, :destroy]
+    resources :posts
   end
 
   devise_for :users
