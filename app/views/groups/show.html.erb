@@ -1,14 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <h3><%= @group.name %>グループ</h3>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+  <div>
+  </div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @group.image %>
-</p>
+  <div>
+    グループ画像<%= @group.image %>
+    <p><%= link_to 'グループ編集(リンク)', edit_group_path(@group) %></p>
+  </div>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+  <div>
+    <table>
+      <tr>
+        <td>ユーザー画像</td>
+        <td>ユーザー名</td>
+        <td>退会ボタン（本人のみ表示）</td>
+      <% @group.assigns.each do |assign| %>
+        <tr>
+          <td><%= assign.user.icon %></td>
+          <td><%= assign.user.name %></td>
+          <% if assign.user == current_user %>
+            <td><%= link_to 'グループ退会', group_assign_path(@group, assign), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div>
+    <%= link_to 'Invite', invite_group_path(@group) %>
+  </div>
+  <%= link_to 'Edit', edit_group_path(@group) %> |
+  <%= link_to 'Back', groups_path %>
+</div>

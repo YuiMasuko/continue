@@ -1,0 +1,17 @@
+<div>
+  <p><%= @user.name %>のマイページ</p>
+  <div>
+    <%= @user.icon %>
+    <%= link_to 'ユーザー編集', edit_user_registration_path %>
+  </div>
+  <table>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.image %></td>
+        <td><%= group.name %></td>
+        <td><%= group.members.count %></td>
+        <td><button type="button"><%= link_to 'グループページへ', group %></button></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

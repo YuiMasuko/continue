@@ -1,0 +1,15 @@
+<h1>メンバーを招待しよう！</h1>
+<div>
+  <%= form_with model: @assign, url: group_assigns_path(@group), local: true do |form| %>
+    <div class="field">
+      <%= text_field_tag :specification, '', { class: 'form-control', placeholder: '招待したいユーザーのIDを入力してください' } %>
+    </div>
+    <div class="field">
+      <%= form.label :招待したい人の誕生日 %>
+      <%= form.date_field :birthday, class: "form-control" %>
+    </div>
+    <div class="actions">
+      <%= form.submit '招待する' %>
+    </div>
+  <% end %>
+</div>
