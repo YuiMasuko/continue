@@ -1,16 +1,20 @@
 <div>
-  <%= @group.name %>グループ
+  <h3><%= @group.name %>グループ</h3>
 
   <div>
   </div>
 
   <div>
-    <%= @group.image %>
-    <%= link_to 'グループ編集', edit_group_path(@group) %>
+    グループ画像<%= @group.image %>
+    <p><%= link_to 'グループ編集(リンク)', edit_group_path(@group) %></p>
   </div>
 
   <div>
     <table>
+      <tr>
+        <td>ユーザー画像</td>
+        <td>ユーザー名</td>
+        <td>退会ボタン（本人のみ表示）</td>
       <% @group.assigns.each do |assign| %>
         <tr>
           <td><%= assign.user.icon %></td>
