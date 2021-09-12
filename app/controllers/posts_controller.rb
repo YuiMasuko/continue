@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  # before_action :group_member_check
   before_action :authenticate_user!
   before_action :set_post, only: %i[ show edit update destroy ]
 
@@ -10,6 +11,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @group = Group.find(params[:group_id])
     @post = Post.new
   end
 
@@ -51,11 +53,13 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def post_params
-      params.require(:post).permit(:event_on, :content, :image, :user_id, :group_id)
-    end
+  def post_params
+    params.require(:post).permit(:event_on, :content, :image, :user_id, :group_id)
+  end
+
+
 end
