@@ -4,16 +4,22 @@
   <div>
   <%= link_to '日常を投稿する(リンク)', new_group_post_path(@group) %>
   </div>
+  <br>
 
   <div>
   <%= link_to 'グループの投稿一覧を見にいく(リンク)', group_posts_path(@group) %>
   </div>
 
+  <br>
   <div>
     グループ画像<%= @group.image %>
-    <p><%= link_to 'グループ編集(リンク)', edit_group_path(@group) %></p>
   </div>
 
+  <br>
+  <div>
+    <%= link_to 'グループ編集(リンク)', edit_group_path(@group) %>
+  </div>
+  <br>
   <div>
     <table>
       <tr>
@@ -31,9 +37,12 @@
       <% end %>
     </table>
   </div>
+  <br>
   <div>
-    <%= link_to 'Invite', invite_group_path(@group) %>
+    <%= link_to 'メンバー招待', invite_group_path(@group) %>
   </div>
-  <%= link_to 'Edit', edit_group_path(@group) %> |
+  <br>
+  <div>
   <%= link_to 'Back', groups_path %>
+  </div>
 </div>
