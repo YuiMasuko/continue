@@ -31,7 +31,7 @@
           <td><%= assign.user.icon %></td>
           <td><%= assign.user.name %></td>
           <% if assign.user == current_user %>
-            <td><%= link_to 'グループ退会', group_assign_path(@group, assign), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+            <td><%= link_to 'グループ退会', group_assign_path(@group, assign), method: :delete, data: { confirm: '本当にグループから抜けますか?' } %></td>
           <% end %>
         </tr>
       <% end %>

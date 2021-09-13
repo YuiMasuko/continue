@@ -13,6 +13,9 @@
   <%= @post.image %>
 </p>
 
+<% if @post.user == current_user %>
+  <%= link_to 'Edit', edit_group_post_path(@post.group_id, @post) %>
+<% end %>
 
-<%= link_to 'Edit', edit_group_post_path(@post.group_id, @post) %> |
+<br>
 <%= link_to 'Back', group_posts_path %>

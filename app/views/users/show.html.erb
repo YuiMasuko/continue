@@ -2,16 +2,25 @@
   <p><%= @user.name %>のマイページ</p>
   <div>
     <%= @user.icon %>
+    <br>
     <%= link_to 'ユーザー編集', edit_user_registration_path %>
   </div>
-  <table>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.image %></td>
-        <td><%= group.name %></td>
-        <td><%= group.members.count %></td>
-        <td><button type="button"><%= link_to 'グループページへ', group %></button></td>
-      </tr>
-    <% end %>
-  </table>
+  <br>
+  <div>
+    <%= link_to 'グループ新規作成', new_group_path %>
+  </div>
+  <br>
+  <div>
+    <h4>所属グループ</h4>
+    <table>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= group.image %></td>
+          <td><%= group.name %></td>
+          <td><%= group.members.count %></td>
+          <td><button type="button"><%= link_to 'グループページへ', group %></button></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

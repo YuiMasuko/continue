@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @post = @posts.first.group_id
   end
 
   def show
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @group = Group.find(params[:group_id])
   end
 
   def create
@@ -30,14 +32,10 @@ class PostsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: "Post was successfully updated." }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.update(post_params)
+      redirect_to group_posts_path(@post.group.id), notice: '日常を編集しました！'
+    else
+      render :edit
     end
   end
 
