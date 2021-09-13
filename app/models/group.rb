@@ -5,6 +5,8 @@ class Group < ApplicationRecord
   has_many :members, through: :assigns, source: :user
   has_many :posts, dependent: :destroy
 
+  mount_uploader :image, ImageUploader
+
   def invite_member(user)
     assigns.create(user: user)
   end

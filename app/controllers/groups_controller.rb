@@ -51,6 +51,6 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.fetch(:group, {}).permit(:name, :image)
+    params.fetch(:group, {}).permit(:name, :image, :image_cache)
   end
 end
