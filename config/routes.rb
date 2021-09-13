@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :groups do
     get 'invite', on: :member
     resources :assigns, only: [:create, :destroy]
+    resources :posts
   end
 
   devise_for :users

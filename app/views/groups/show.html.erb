@@ -1,14 +1,25 @@
 <div>
   <h3><%= @group.name %>グループ</h3>
+  <br>
+  <div>
+  <%= link_to '日常を投稿する(リンク)', new_group_post_path(@group) %>
+  </div>
+  <br>
 
   <div>
+  <%= link_to 'グループの投稿一覧を見にいく(リンク)', group_posts_path(@group) %>
   </div>
 
+  <br>
   <div>
     グループ画像<%= @group.image %>
-    <p><%= link_to 'グループ編集(リンク)', edit_group_path(@group) %></p>
   </div>
 
+  <br>
+  <div>
+    <%= link_to 'グループ編集(リンク)', edit_group_path(@group) %>
+  </div>
+  <br>
   <div>
     <table>
       <tr>
@@ -20,15 +31,18 @@
           <td><%= assign.user.icon %></td>
           <td><%= assign.user.name %></td>
           <% if assign.user == current_user %>
-            <td><%= link_to 'グループ退会', group_assign_path(@group, assign), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+            <td><%= link_to 'グループ退会', group_assign_path(@group, assign), method: :delete, data: { confirm: '本当にグループから抜けますか?' } %></td>
           <% end %>
         </tr>
       <% end %>
     </table>
   </div>
+  <br>
   <div>
-    <%= link_to 'Invite', invite_group_path(@group) %>
+    <%= link_to 'メンバー招待', invite_group_path(@group) %>
   </div>
-  <%= link_to 'Edit', edit_group_path(@group) %> |
+  <br>
+  <div>
   <%= link_to 'Back', groups_path %>
+  </div>
 </div>

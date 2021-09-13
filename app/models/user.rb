@@ -12,4 +12,5 @@ class User < ApplicationRecord
 
   has_many :assigns, dependent: :destroy
   has_many :groups, through: :assigns
+  has_many :posts, dependent: :destroy
 end

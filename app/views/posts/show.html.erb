@@ -1,0 +1,21 @@
+<p>
+  <strong>Event on:</strong>
+  <%= @post.event_on %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @post.image %>
+</p>
+
+<% if @post.user == current_user %>
+  <%= link_to 'Edit', edit_group_post_path(@post.group_id, @post) %>
+<% end %>
+
+<br>
+<%= link_to 'Back', group_posts_path %>

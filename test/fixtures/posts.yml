@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_on: 2021-09-12
+  content: MyText
+  image: MyString
+  user: one
+  group: one
+
+two:
+  event_on: 2021-09-12
+  content: MyText
+  image: MyString
+  user: two
+  group: two
