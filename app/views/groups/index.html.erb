@@ -12,8 +12,14 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
+        <td class="group_image">
+          <% if group.image? %>
+            <%= image_tag group.image.url %>
+          <% else %>
+            <%= image_tag ("default.png") %>
+          <% end %>
+        </td>
         <td><%= group.name %></td>
-        <td><%= group.image %></td>
         <td><%= link_to 'Show', group %></td>
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
         <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
