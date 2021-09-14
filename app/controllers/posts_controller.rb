@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
-    @posts = Post.all
-    @post = @posts.first.group_id
+    @posts = Post.where(group_id: params[:group_id])
+    @group_id = @posts.first.group_id
   end
 
   def show
