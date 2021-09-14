@@ -1,10 +1,14 @@
 <div>
-  <p><%= @user.name %>のマイページ</p>
-  <div>
-    <%= @user.icon %>
-    <br>
-    <%= link_to 'ユーザー編集', edit_user_registration_path %>
+  <%= @user.name %>のマイページ</p>
+  <div class="user_icon">
+    <% if @user.icon? %>
+      <%= image_tag @user.icon.url %>
+    <% else %>
+      <%= image_tag ("default_user.png") %>
+    <% end %>
   </div>
+  <br>
+  <%= link_to 'ユーザー編集', edit_user_registration_path %>
   <br>
   <div>
     <%= link_to 'グループ新規作成', new_group_path %>
@@ -15,7 +19,13 @@
     <table>
       <% @groups.each do |group| %>
         <tr>
-          <td><%= group.image %></td>
+          <td class="group_image">
+            <% if group.image? %>
+              <%= image_tag group.image.url %>
+            <% else %>
+              <%= image_tag ("default.png") %>
+            <% end %>
+          </td>
           <td><%= group.name %></td>
           <td><%= group.members.count %></td>
           <td><button type="button"><%= link_to 'グループページへ', group %></button></td>
