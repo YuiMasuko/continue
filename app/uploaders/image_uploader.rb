@@ -27,12 +27,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-  process resize_to_fit: [100, 100]
+  process resize_to_fit: [200, 200]
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
+  version :thumb do
+    process resize_to_fit: [150, 150]
+  end
+
+  process :convert =>  'png'
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -45,4 +47,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  def filename
+    time = Time.now
+    name = time.strftime('%Y%m%d%H%M%S') + '.png'
+    name.downcase
+  end
 end
