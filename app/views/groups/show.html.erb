@@ -11,8 +11,12 @@
   </div>
 
   <br>
-  <div>
-    <%= image_tag @group.image.url %>
+  <div class="group_image">
+    <% if @group.image? %>
+      <%= image_tag @group.image.url %>
+    <% else %>
+      <%= image_tag ("default.png") %>
+    <% end %>
   </div>
 
   <br>
@@ -28,7 +32,7 @@
         <td>退会ボタン（本人のみ表示）</td>
       <% @group.assigns.each do |assign| %>
         <tr>
-          <td><%= image_tag assign.user.icon.url %></td>
+          <td class="user_icon_group_page"><%= image_tag assign.user.icon.url %></td>
           <td><%= assign.user.name %></td>
           <% if assign.user == current_user %>
             <td><%= link_to 'グループ退会', group_assign_path(@group, assign), method: :delete, data: { confirm: '本当にグループから抜けますか?' } %></td>

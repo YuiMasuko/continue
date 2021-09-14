@@ -5,7 +5,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.where(group_id: params[:group_id])
-    @group_id = @posts.first.group_id
   end
 
   def show

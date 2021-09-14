@@ -32,7 +32,10 @@ class IconUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process resize_to_fit: [50, 50]
   # end
-  process resize_to_fit: [150, 150]
+  # process resize_to_fit: [150, 150]
+  def default_url(*args)
+    "default_user.png"
+  end
 
   process :convert =>  'png'
 
