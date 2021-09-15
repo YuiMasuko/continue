@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'groups#index'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   resources :groups do
     get 'invite', on: :member
     resources :assigns, only: [:create, :destroy]
