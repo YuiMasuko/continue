@@ -18,7 +18,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
-# gem 'mimemagic', '0.3.7'
+gem 'cancancan'
+gem 'rails_admin', '~> 2.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -32,6 +33,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
+  gem 'bullet'
 end
 
 group :test do

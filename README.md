@@ -23,6 +23,7 @@ Continue は 家族や親友など、<br>
 
 ## カリキュラム外の技術
 - ransack
+- bullet
 
 ## 実行手順
 ```
