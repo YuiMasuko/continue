@@ -16,14 +16,16 @@ Continue は 家族や親友など、<br>
 
 ## 就職Termの技術
 - devise
-- rails_admin
-- cancancan
 - Ajaxを使ったコメント機能
-- kaminari
 
 ## カリキュラム外の技術
 - ransack
 - bullet
+
+## カリキュラムの技術
+- rails_admin
+- kaminari
+- cancancan
 
 ## 実行手順
 ```
