@@ -30,7 +30,7 @@
         <td>ユーザー画像</td>
         <td>ユーザー名</td>
         <td>退会ボタン（本人のみ表示）</td>
-      <% @group.assigns.each do |assign| %>
+      <% @group.assigns.includes([:user]).each do |assign| %>
         <tr>
           <td class="user_icon_group_page"><%= image_tag assign.user.icon.url %></td>
           <td><%= assign.user.name %></td>

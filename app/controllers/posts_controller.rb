@@ -8,6 +8,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @group = Group.find(params[:group_id])
+    @comment = Comment.new
+    @comments = @post.comments.order(created_at: :desc)
   end
 
   def new
@@ -49,6 +52,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.fetch(:post, {}).permit(:event_on, :content, :image)
+    params.require(:post).permit(:event_on, :content, :image, :post_id, :group_id)
   end
 end

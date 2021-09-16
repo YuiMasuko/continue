@@ -1,0 +1,10 @@
+<%= comments.count %>件コメント
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+    <p><%= "#{comment.user.name}さん" %></p>
+    <p>コメント：<%= comment.content %></p>
+    <% if comment.user == current_user %>
+      <p><%= link_to '削除', group_post_comment_path(comment.post.group_id, comment.post_id, comment.id), method: :delete, remote: true %></p>
+    <% end %>
+  <% end %>
+<% end %>

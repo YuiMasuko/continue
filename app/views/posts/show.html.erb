@@ -9,9 +9,18 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @post.image %>
+  <%= image_tag @post.image.url %>
 </p>
+
+<div>
+  <h4>コメント</h4>
+  <div id="comments_area">
+    <%= render 'comments/index', comments: @comments, post: @post, group: @group %>
+  </div>
+  <% if user_signed_in? %>
+    <%= render 'comments/form', comment: @comment, post: @post, group: @group %>
+  <% end %>
+</div>
 
 <% if @post.user == current_user %>
   <%= link_to 'Edit', edit_group_post_path(@post.group_id, @post) %>
