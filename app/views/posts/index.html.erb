@@ -16,10 +16,12 @@
       <td><%= post.content %></td>
       <td><%= post.user.name %></td>
       <td><%= link_to 'Show', group_post_path(post.group_id, post) %></td>
-      <td><%= link_to 'Edit', edit_group_post_path(post.group_id, post) %></td>
-      <td><%= link_to 'Destroy', group_post_path(post.group_id, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+      <% if post.user == current_user %>
+        <td><%= link_to 'Edit', edit_group_post_path(post.group_id, post) %></td>
+        <td><%= link_to 'Destroy', group_post_path(post.group_id, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
   <% end %>
+    </tr>
 </table>
 
 <br>

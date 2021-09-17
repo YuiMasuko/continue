@@ -24,7 +24,4 @@ class AssignsController < ApplicationController
     end
   end
 
-
-
-
 end
