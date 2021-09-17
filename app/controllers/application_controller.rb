@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
+  def group_member_check
+    unless @group.members.include?(current_user)
+      redirect_to user_path(current_user.id), notice:"そのグループに所属していないので見られません"
+    end
+  end
+
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :specification, :birthday, :icon])

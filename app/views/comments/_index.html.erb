@@ -1,5 +1,5 @@
 <%= comments.count %>件コメント
-<% comments.each do |comment| %>
+<% comments.includes([:user]).each do |comment| %>
   <% unless comment.id.nil? %>
     <p><%= "#{comment.user.name}さん" %></p>
     <p>コメント：<%= comment.content %></p>

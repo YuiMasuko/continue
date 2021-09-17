@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, only: %i[ show edit update destroy invite]
+  before_action :group_member_check, only: %i[show edit update destroy invite]
 
   def index
     @groups = Group.all
