@@ -35,6 +35,9 @@
   <% end %>
     </tr>
 </table>
+<div class="index_page">
+  <%= paginate @posts %>
+</div>
 
 <br>
 <%= link_to 'New Post', new_group_post_path %>

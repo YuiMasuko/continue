@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :group_member_check, only: %i[ index show new edit destroy]
 
   def index
-    @posts = Post.where(group_id: @group.id)
+    @posts = Post.where(group_id: @group.id).page(params[:page])
     @q = Post.ransack(params[:q])
   end
 
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
   def search
     @q = Post.ransack(params[:q])
-    @results = @q.result(distinct: true).where(group_id: @group.id)
+    @results = @q.result(distinct: true).where(group_id: @group.id).page(params[:page])
     redirect_to group_posts_path(@group.id), notice: '該当する投稿がありませんでした！' if @results == []
   end
 
