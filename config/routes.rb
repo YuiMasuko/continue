@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :assigns, only: [:create, :destroy]
     resources :posts do
       resources :comments, only: [:create, :destroy]
+      collection do
+        get 'search'
+      end
     end
   end
 
