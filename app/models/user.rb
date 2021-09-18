@@ -16,4 +16,10 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   mount_uploader :icon, IconUploader
+
+  def self.guest
+    find_or_create_by!(name: 'ゲスト', specification: 'guest000', birthday: '2000-01-01', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.alphanumeric()
+    end
+  end
 end
