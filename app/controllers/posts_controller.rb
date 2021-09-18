@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :set_group, only: %i[ index show new edit destroy]
+  before_action :set_group, only: %i[ index show new edit destroy search]
   before_action :group_member_check, only: %i[ index show new edit destroy]
 
   def index
     @posts = Post.where(group_id: @group.id)
+    @q = Post.ransack(params[:q])
   end
 
   def show
@@ -47,7 +48,15 @@ class PostsController < ApplicationController
     redirect_to group_path(@post.group.id), notice: '投稿を削除しました！'
   end
 
+  def search
+    @q = Post.ransack(params[:q])
+    @results = @q.result(distinct: true).where(group_id: @group.id)
+    redirect_to group_posts_path(@group.id), notice: '該当する投稿がありませんでした！' if @results == []
+  end
+
+
   private
+
   def set_post
     @post = Post.find(params[:id])
   end
