@@ -50,4 +50,4 @@ https://cacoo.com/diagrams/U2MXtR15Ayg0JOC8/FECAC
 
 
 ## 画面遷移図
-![screen_transition](https://user-images.githubusercontent.com/86764911/132432206-5805369b-8a3e-448f-8dc9-4c7ed9a3258f.png)
+![screen_transition](https://user-images.githubusercontent.com/86764911/133911166-ce6efe6d-9a13-4a9f-8446-9c026b219d02.png)
