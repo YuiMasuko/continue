@@ -1,0 +1,16 @@
+<h3>トップページ</h3>
+
+<div>
+  <ul>
+    <li>サービスの概要</li>
+    <li>コンセプト</li>
+    <li>機能についての説明</li>
+  </ul>
+</div>
+
+<div>
+    <%= link_to "ログイン", new_user_session_path, class:"btn btn-success" %>
+    <%= link_to "新規登録", new_user_registration_path, class:"btn btn-success" %>
+    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class:"btn btn-success" %>
+    <%= link_to '管理者ゲストログイン（確認用）', users_guest_admin_sign_in_path, method: :post, class:"btn btn-success" %>
+</div>

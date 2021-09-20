@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # root 'users#show'
+  root 'tops#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :groups do
