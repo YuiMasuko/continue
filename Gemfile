@@ -22,6 +22,7 @@ gem 'cancancan'
 gem 'rails_admin', '~> 2.0'
 gem 'ransack'
 gem 'kaminari'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
