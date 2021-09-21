@@ -1,6 +1,7 @@
 5.times do |n|
   #女の子
-  User.seed(:specification) do |s|
+  User.seed do |s|
+    s.id = "#{n+1}"
     s.name = Faker::Name.female_first_name
     s.email = Faker::Internet.email
     s.specification = "seeddataf#{n+1}"
@@ -9,7 +10,8 @@
     s.password  = Faker::Internet.password(min_length:6, max_length:20)
   end
   #男の子
-  User.seed(:specification) do |s|
+  User.seed do |s|
+    s.id ="#{n+6}"
     s.name = Faker::Name.male_first_name
     s.email = Faker::Internet.email
     s.specification = "seeddatam#{n+1}"
