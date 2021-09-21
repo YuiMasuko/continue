@@ -21,4 +21,9 @@ end
     s.user_id = "#{n+1}"
     s.group_id = "5"
   end
+  Assign.seed do |s|
+    s.id = "#{n+13}"
+    s.user_id = "5"
+    s.group_id = "#{n+4}"
+  end
 end
