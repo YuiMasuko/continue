@@ -1,3 +1,15 @@
+<div>
+  <%= search_form_for @q, url:search_group_posts_path do |f| %>
+    <%= f.label :user_name_cont, "投稿者" %>
+    <%= f.search_field :user_name_cont %>
+
+    <%= f.label :event_on %>
+    <%= f.date_field :event_on_gteq, include_blank: true %> 〜
+    <%= f.date_field :event_on_lteq, include_blank: true %>
+    <br>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
 <table>
   <tr>
     <th>Event on</th>
@@ -10,7 +22,11 @@
   <% @results.includes([:user]).each do |result| %>
     <tr>
       <td><%= result.event_on %></td>
-      <td class="post_image"><%= image_tag result.image.url %></td>
+      <td class="post_image">
+        <%= link_to group_post_path(result.group_id, result) do %>
+          <%= image_tag result.image.url %>
+        <% end %>
+      </td>
       <td><%= result.content %></td>
       <td><%= result.user.name %></td>
       <td><%= link_to 'Show', group_post_path(result.group_id, result) %></td>
@@ -21,3 +37,5 @@
   <% end %>
     </tr>
 </table>
+
+<%= link_to 'Back', group_path(@group) %>
