@@ -7,7 +7,7 @@
     <th colspan="3"></th>
   </tr>
 
-  <% @results.each do |result| %>
+  <% @results.includes([:user]).each do |result| %>
     <tr>
       <td><%= result.event_on %></td>
       <td class="post_image"><%= image_tag result.image.url %></td>
