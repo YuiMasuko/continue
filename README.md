@@ -21,11 +21,13 @@ Continue は 家族や親友など、<br>
 ## カリキュラム外の技術
 - ransack
 - bullet
+- seed-fu
 
 ## カリキュラムの技術
 - rails_admin
 - kaminari
 - cancancan
+- faker
 
 ## 実行手順
 ```

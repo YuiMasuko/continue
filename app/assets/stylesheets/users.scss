@@ -1,13 +1,13 @@
-.user_icon {
-  width: 100px;
-  height: 100px;
+.user_icon img{
+  width: 200px;
+  height: 200px;
 }
 .user_icon_group_page {
   width: 90px;
   height: 90px;
 }
 
-.user_icon, .user_icon_group_page img {
+.user_icon_group_page img {
   width: 100%;
   height: 100%;
   object-fit: contain;
