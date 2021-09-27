@@ -3,4 +3,5 @@
 <%= render 'form', post: @post %>
 
 <%= link_to 'Destroy', group_post_path(@post.group_id, @post), method: :delete, data: { confirm: '投稿を削除しますか?' } %>
+<br>
 <%= link_to 'Back', group_post_path(@group, @post) %>

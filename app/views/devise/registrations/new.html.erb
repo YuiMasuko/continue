@@ -10,22 +10,25 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :specification %><br />
-    <%= f.text_field :specification, autofocus: true, autocomplete: "specification" %>
+    <%= f.label :specification %>
+    <%= '※半角6-10文字、かつ英数字をそれぞれ1文字以上含めてください' %>
+    <br>
+    <%= f.text_field :specification, autocomplete: "specification" %>
   </div>
 
   <div class="field">
     <%= f.label :birthday %><br />
-    <%= f.date_select :birthday, default: Date.new(1990, 1, 1), autofocus: true, autocomplete: "birthday" %>
+    <%= f.date_select :birthday, default: Date.new(1990, 1, 1), autocomplete: "birthday" %>
   </div>
 
   <div class="field">
     <%= f.label :icon %><br />
-    <%= f.file_field :icon, autofocus: true, autocomplete: "specification" %>
+    <%= f.file_field :icon %>
+    <%= f.hidden_field :icon_cache %>
   </div>
 
 
