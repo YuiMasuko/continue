@@ -1,4 +1,4 @@
-<h3>グループの投稿一覧</h3>
+<h3><%= @group.name %>グループ みんなの日常投稿一覧</h3>
 <div>
   <%= search_form_for @q, url:search_group_posts_path do |f| %>
     <%= f.label :user_name_cont, "投稿者" %>
