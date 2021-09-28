@@ -10,6 +10,7 @@
   </head>
 
   <body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <%= link_to "TOPページ", root_path %>
     <% if user_signed_in? %>
       <%= link_to "マイページ", "/users/#{current_user.id}" %>
