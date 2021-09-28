@@ -1,10 +1,16 @@
-<h3>グループの投稿一覧</h3>
+<h3><%= @group.name %>グループ みんなの日常投稿一覧</h3>
+<br>
 <div>
+  <%= link_to '日常を投稿する(リンク)', new_group_post_path(@group) %>
+  </div>
+<br>
+<div>
+<h5>日常投稿を絞り込む</h5>
   <%= search_form_for @q, url:search_group_posts_path do |f| %>
-    <%= f.label :user_name_cont, "投稿者" %>
+    <%= f.label :user_name_cont, "投稿者で検索" %>
     <%= f.search_field :user_name_cont %>
 
-    <%= f.label :event_on %>
+    <%= f.label :event_on, "日付で検索" %>
     <%= f.date_field :event_on_gteq, include_blank: true %> 〜
     <%= f.date_field :event_on_lteq, include_blank: true %>
     <br>
@@ -40,6 +46,8 @@
 
 
 
+<%
+=begin%>
 
 <!doctype html>
 <html lang="ja" >
@@ -98,3 +106,5 @@
 <script src="/docs/4.5/assets/js/src/ie-emulation-modes-warning.js"></script>
   </body>
 </html>
+<%
+=end%>

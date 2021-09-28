@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :set_group, only: %i[ index show new edit destroy search]
+  before_action :set_group, only: %i[ index show new edit destroy search create]
   before_action :group_member_check, only: %i[ index show new edit destroy]
 
   def index
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     @post.group = Group.find(params[:group_id])
     if @post.save
-      redirect_to group_path(@post.group.id), notice: '日常を投稿しました！'
+      redirect_to group_posts_path(@group), notice: '日常を投稿しました！'
     else
       flash.now[:error] = '投稿できませんでした'
       render :new
@@ -66,6 +66,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:event_on, :content, :image, :post_id, :group_id)
+    params.require(:post).permit(:event_on, :content, :image, :post_id, :group_id, :image_cache)
   end
 end

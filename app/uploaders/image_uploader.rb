@@ -39,6 +39,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process resize_to_fit: [150, 150]
   # end
+  process :resize_to_limit => [640, 640]
+
+  version :thumb do
+    process :resize_to_limit => [320, 320]
+  end
 
   process :convert =>  'png'
 

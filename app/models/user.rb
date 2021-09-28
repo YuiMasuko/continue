@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
+  mount_uploader :icon, IconUploader
 
   VALID_SPECIFICATION_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,10}+\z/i
 
@@ -15,7 +16,6 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  mount_uploader :icon, IconUploader
 
   def self.guest
     find_or_create_by!(name: 'ゲスト', specification: 'guest000', birthday: '2000-01-01', email: 'guest@example.com') do |user|

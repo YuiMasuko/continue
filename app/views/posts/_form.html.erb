@@ -23,6 +23,10 @@
 
   <div class="field">
     <%= form.label :image %>
+    <% if @post.image? %>
+      <%= image_tag @post.image.url %>
+    <% end %>
+    <%= form.hidden_field :image_cache %>
     <%= form.file_field :image %>
   </div>
 
