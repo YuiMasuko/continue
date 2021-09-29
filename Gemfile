@@ -30,6 +30,7 @@ gem 'jquery-rails'
 gem 'dotenv-rails' # 開発環境で環境変数を操作するのに必要
 gem 'unicorn' # アプリケーションサーバのunicorn
 gem 'nokogiri'
+gem 'mini_racer'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
