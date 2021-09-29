@@ -16,4 +16,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user_path(id: current_user.id)
   end
 
+  def after_sign_out_path_for(resource)
+    new_user_session_path
+    redirect_to root_path, notice: 'ログアウトしました！'
+  end
+
 end
