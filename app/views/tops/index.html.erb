@@ -1,38 +1,33 @@
 <div class="container">
-<div class="row">
-<h3>トップページ</h3>
-
-<div><!-- ※概要等の文面：フロント実装時に詳細決める -->
-  <div>
-    <div>
-      <h6>サービスの概要</h6>
-      <div>
-        <%= '会いたい人に会えないコロナ禍のいま、大切な人と疎遠になっていませんか？「Continue」は、家族や親友などずっと繋がっていたい大切な人のみに日常を共有し、離れていてもコミュニケーションが活性化されるアプリです。' %>
-      </div>
-    </div>
-    <br>
-    <div>
-      <h6>コンセプト</h6>
-      <div>
-        <%= 'SNSは会ったことのない人とコミュニケーションをとることができるとても便利なサービスです。これを利用して、たくさんの人間関係を築いていくことはとても素晴らしいことです。しかし、オンライン上で多くの人と出会い、簡単にコミュニュケーションが取れる今だからこそ、昔からの家族や親友との関係を大切にしたい、と日頃から強く感じていました。このアプリを使って、離れて暮らす大切な人と日々の出来事を共有することで、
-        会えていない時間の空白を埋めてくれる、温かいアプリになることを期待して設計しました。' %>
-      </div>
-    </div>
-    <br>
-    <div>
-      <h6>機能についての説明</h6>
-      <div>
-        <%= '・・・機能説明・・・' %>
-      </div>
+  <div class="row">
+    <div class="top_title">
+    <h1>Continue</h1>
+    <h4>最近、家族や幼なじみなど大切な人と疎遠になっていませんか？</h4>
+    「Continue」は、生涯繋がっていたい人のみに日常を共有し、離れていてもコミュニケーションが活性化されるアプリです
     </div>
   </div>
-</div>
-<br>
-<div>
-  <% unless user_signed_in? %>
-    <%= link_to "ログイン", new_user_session_path, class:"btn btn-warning" %>
-    <%= link_to "新規登録", new_user_registration_path, class:"btn btn-warning" %>
-    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class:"btn btn-warning" %>
-    <%= link_to '管理者ゲストログイン（確認用）', users_guest_admin_sign_in_path, method: :post, class:"btn btn-warning" %>
-  <% end %>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="contents col-md-6">
+      <div class="top_explain">
+        オンライン上で多くの人と出会い、簡単にコミュニュケーションが取れる今だからこそ、<br><br>
+        昔からの家族や親友との関係を大切にしたい、と日頃から強く感じていました。<br><br>
+        このアプリを使って、離れて暮らす大切な人と日々の出来事を共有することで、<br><br>
+        会えていない時間の空白を埋めてくれる、温かいアプリになることを期待して設計しました。<br><br>
+      </div>
+    </div>
+    <div class="contents col-md-6">
+      <% unless user_signed_in? %>
+        <ul class="top_link">
+          <li><%= link_to "ログイン", new_user_session_path, class:"btn btn-info" %></li><br>
+          <li><%= link_to "ユーザー登録", new_user_registration_path, class:"btn btn-info" %></li><br>
+          <li><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"btn btn-info" %></li><br>
+          <li><%= link_to '管理者ゲストログイン', users_guest_admin_sign_in_path, method: :post, class:"btn btn-info" %></li><br>
+        </ul>
+      <% end %>
+    </div>
+  </div>
 </div>
