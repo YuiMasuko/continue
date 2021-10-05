@@ -6,7 +6,7 @@
     </div>
     <div class="field">
       <%= form.label :招待したい人の誕生日 %>
-      <%= form.date_select :birthday, default: Date.new(1990, 1, 1), class: 'form-control' %>
+      <%= form.date_field :birthday, {start_year: 1950, end_year: Time.now.year, class: 'form-control'} %>
     </div>
     <div class="actions">
       <%= form.submit '招待する' %>
