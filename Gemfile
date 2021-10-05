@@ -24,7 +24,7 @@ gem 'ransack'
 gem 'kaminari'
 gem 'faker'
 gem 'seed-fu'
-gem 'bootstrap', '~> 4.1.1'
+# gem 'bootstrap', '~> 3.4.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
