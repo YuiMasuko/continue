@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# ruby '2.6.5'
+ruby '2.6.5'
 
 gem 'rails', '~> 5.2.5'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -25,9 +25,8 @@ gem 'ransack'
 gem 'kaminari'
 gem 'faker'
 gem 'seed-fu'
-# gem 'bootstrap', '~> 3.4.1'
+gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
 
 
 group :development, :test do
