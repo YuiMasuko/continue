@@ -3,20 +3,20 @@
   User.seed do |s|
     s.id = "#{n+1}"
     s.name = Faker::Name.female_first_name
-    s.email = Faker::Internet.email
+    s.email = "test#{n+1}@gmail.com"
     s.specification = "seeddataf#{n+1}"
-    s.birthday  = Faker::Date.birthday(min_age: 20, max_age: 35)
+    s.birthday = "2000-01-01"
     s.icon  = Rails.root.join("db/fixtures/images/user_f_#{n+1}.jpg").open
-    s.password  = Faker::Internet.password(min_length:6, max_length:20)
+    s.password  = "password"
   end
   #男の子
   User.seed do |s|
-    s.id ="#{n+6}"
+    s.id = "#{n+6}"
     s.name = Faker::Name.male_first_name
-    s.email = Faker::Internet.email
+    s.email = "test#{n+6}@gmail.com"
     s.specification = "seeddatam#{n+1}"
-    s.birthday  = Faker::Date.birthday(min_age: 20, max_age: 40)
+    s.birthday  = "2000-12-31"
     s.icon  = Rails.root.join("db/fixtures/images/user_m_#{n+1}.jpg").open
-    s.password  = Faker::Internet.password(min_length:6, max_length:20)
+    s.password  = "password"
   end
 end
