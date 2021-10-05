@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :event_on %>
-    <%= form.date_select :event_on %>
+    <%= form.date_select :event_on, {}, {class: 'form-control', style: 'display: inline-block;width: auto;'} %>
   </div>
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class: 'form-control' %>
   </div>
 
   <div class="field">
