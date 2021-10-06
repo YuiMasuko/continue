@@ -1,7 +1,11 @@
-<h1>Editing Post</h1>
+<h3 class="group_title">投稿編集</h3>
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Destroy', group_post_path(@post.group_id, @post), method: :delete, data: { confirm: '投稿を削除しますか?' } %>
+<div class="form_destroy">
+<%= link_to '投稿削除', group_post_path(@post.group_id, @post), class:"btn btn-danger" , method: :delete, data: { confirm: '投稿を削除しますか?' } %>
+</div>
 <br>
-<%= link_to 'Back', group_post_path(@group, @post) %>
+<div class="edit_form_back">
+  <%= link_to '戻る', group_post_path(@group, @post), class:"btn btn-default" %>
+</div>
