@@ -42,7 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   process :resize_to_limit => [640, 640]
 
   version :thumb do
-    process :resize_to_limit => [320, 320]
+    process :resize_to_limit => [500, 500]
   end
 
   process :convert =>  'png'

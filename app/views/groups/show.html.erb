@@ -1,55 +1,52 @@
-<div>
-  <h3><%= @group.name %>グループ</h3>
-  <br>
-  <div>
-  <%= link_to '日常を投稿する(リンク)', new_group_post_path(@group) %>
-  </div>
-  <br>
-
-  <div>
-  <%= link_to 'グループの投稿一覧を見にいく(リンク)', group_posts_path(@group) %>
-  </div>
-
-  <br>
-  <div class="group_image">
-    <% if @group.image? %>
-      <%= image_tag @group.image.url %>
-    <% else %>
-      <%= image_tag ("default.png") %>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <h3 class="group_title"><%= @group.name %>グループ</h3>
+    <div class="group_post_new">
+      <%= link_to '　日常を投稿する　', new_group_post_path(@group), class:"btn btn-warning" %>
+    </div>
+    <div class="group_post_index">
+      <%= link_to 'グループの投稿一覧', group_posts_path(@group), class:"btn btn-warning" %>
+    </div>
   </div>
 
-  <br>
-  <div>
-    <%= link_to 'グループ編集(リンク)', edit_group_path(@group) %>
-  </div>
-  <br>
-  <div>
-    <table>
-      <tr>
-        <td>ユーザー画像</td>
-        <td>ユーザー名</td>
-        <td>退会ボタン（本人のみ表示）</td>
+  <div class="row">
+    <div class="group_info col-md-6">
+      <div class="group_image">
+        <% if @group.image? %>
+          <%= image_tag @group.image.url %>
+        <% else %>
+          <%= image_tag ("default.png") %>
+        <% end %>
+      </div>
+      <div class="group_edit">
+        <%= link_to 'グループ編集', edit_group_path(@group) ,class:"btn btn-default btn-xs" %>
+      </div>
+    </div>
+
+    <div class="member col-md-6">
+      <h4 class="member_title">所属メンバー</h4>
+    <table class="table">
       <% @group.assigns.includes([:user]).each do |assign| %>
-        <tr>
           <td class="user_icon_group_page">
             <% if assign.user.icon? %>
-              <%= image_tag assign.user.icon.url %>
+              <%= image_tag assign.user.icon.url, class:"trim-image-to-circle" %>
             <% else %>
-              <%= image_tag ("default_user.png") %>
+              <%= image_tag ("default_user.png"), class:"trim-image-to-circle" %>
             <% end %>
           </td>
           <td><%= assign.user.name %></td>
           <% if assign.user == current_user %>
-            <td><%= link_to 'グループ退会', group_assign_path(@group, assign), method: :delete, data: { confirm: '本当にグループから抜けますか?' } %></td>
+            <td><%= link_to '退会', group_assign_path(@group, assign), class:"btn btn-danger btn-xs", method: :delete, data: { confirm: '本当にグループから抜けますか?' } %></td>
           <% end %>
-        </tr>
       <% end %>
     </table>
   </div>
-  <br>
-  <div>
-    <%= link_to 'メンバー招待', invite_group_path(@group) %>
+  </div>
+
+  <div class="row">
+    <div class="invite">
+      <%= link_to 'メンバー招待', invite_group_path(@group), class:"btn btn-default"%>
+    </div>
   </div>
   <br>
 </div>

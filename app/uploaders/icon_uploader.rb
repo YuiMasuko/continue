@@ -24,7 +24,7 @@ class IconUploader < CarrierWave::Uploader::Base
   process :resize_to_limit => [450, 450]
 
   version :thumb do
-    process :resize_to_limit => [320, 320]
+    process :resize_to_limit => [500, 500]
   end
   # Process files as they are uploaded:
   # process scale: [200, 300]

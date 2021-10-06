@@ -1,14 +1,44 @@
-.user_icon img{
-  width: 200px;
-  height: 200px;
+.user_icon {
+  width: 250px;
+  height: 250px;
+  margin : 0 auto
+}
+.user_icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .user_icon_group_page {
   width: 90px;
   height: 90px;
 }
-
 .user_icon_group_page img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.user_title {
+  color: #DF7861;
+  text-align: center;
+  margin-top: 30px;
+}
+.trim-image-to-circle {
+  border-radius: 50%;
+  background-position: center center;
+}
+.user_edit {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.user_group_new {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #fff;
+  border-bottom: 3px solid #D4E2D4;
+  padding-bottom: 40px;
+}
+
+.table td {
+  text-align: center;
+  vertical-align: middle;
 }
