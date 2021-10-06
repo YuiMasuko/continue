@@ -22,10 +22,10 @@
     <div class="contents col-md-6">
       <% unless user_signed_in? %>
         <ul class="top_link">
-          <li><%= link_to "ログイン", new_user_session_path, class:"btn btn-info" %></li><br>
-          <li><%= link_to "ユーザー登録", new_user_registration_path, class:"btn btn-info" %></li><br>
-          <li><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"btn btn-info" %></li><br>
-          <li><%= link_to '管理者ゲストログイン', users_guest_admin_sign_in_path, method: :post, class:"btn btn-info" %></li><br>
+          <li><%= link_to "ログイン", new_user_session_path, class:"btn btn-warning" %></li><br>
+          <li><%= link_to "ユーザー登録", new_user_registration_path, class:"btn btn-warning" %></li><br>
+          <li><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"btn btn-warning" %></li><br>
+          <li><%= link_to '管理者ゲストログイン', users_guest_admin_sign_in_path, method: :post, class:"btn btn-warning" %></li><br>
         </ul>
       <% end %>
     </div>
