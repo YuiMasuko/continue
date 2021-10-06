@@ -25,8 +25,8 @@
 
     <div class="member col-md-6">
       <h4 class="member_title">所属メンバー</h4>
-    <table class="table">
       <% @group.assigns.includes([:user]).each do |assign| %>
+    <table class="table">
           <td class="user_icon_group_page">
             <% if assign.user.icon? %>
               <%= image_tag assign.user.icon.url, class:"trim-image-to-circle" %>
@@ -34,9 +34,11 @@
               <%= image_tag ("default_user.png"), class:"trim-image-to-circle" %>
             <% end %>
           </td>
-          <td><%= assign.user.name %></td>
+          <td id="member_column"><%= assign.user.name %></td>
           <% if assign.user == current_user %>
-            <td><%= link_to '退会', group_assign_path(@group, assign), class:"btn btn-danger btn-xs", method: :delete, data: { confirm: '本当にグループから抜けますか?' } %></td>
+            <td id="member_column"><%= link_to '退会', group_assign_path(@group, assign), class:"btn btn-danger btn-xs", method: :delete, data: { confirm: '本当にグループから抜けますか?' } %></td>
+          <% else %>
+            <td></td>
           <% end %>
       <% end %>
     </table>
