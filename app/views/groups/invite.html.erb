@@ -1,18 +1,37 @@
-<h1>メンバーを招待しよう！</h1>
-<div>
-  <%= form_with model: @assign, url: group_assigns_path(@group), local: true do |form| %>
-    <div class="field">
-      <%= text_field_tag :specification, '', { class: 'form-control', placeholder: '招待したいユーザーのIDを入力してください' } %>
+<div class="container">
+  <div class="row">
+    <h2 class="group_title">メンバーを招待しよう！</h2>
+    <p class="invite_info">情報がわからない場合は直接連絡をとってみよう★<p>
+
+    <div class="image col-md-6">
+      <div class="group_image">
+          <% if @group.image? %>
+            <%= image_tag @group.image.url %>
+          <% else %>
+            <%= image_tag ("default.png") %>
+          <% end %>
+        </div>
     </div>
-    <div class="field">
-      <%= form.label :招待したい人の誕生日 %>
-      <%= form.date_field :birthday, {start_year: 1950, end_year: Time.now.year, class: 'form-control'} %>
+
+    <div class="contents col-md-6">
+      <%= form_with model: @assign, url: group_assigns_path(@group), local: true do |form| %>
+        <div class="field">
+          <%= form.label :招待したい人のid %>
+          <%= text_field_tag :specification, '', { class: 'form-control', placeholder: '空の場合は招待できません' } %>
+        </div>
+        <br>
+        <div class="field">
+          <%= form.label :招待したい人の誕生日 %>
+          <%= form.date_field :birthday, {start_year: 1950, end_year: Time.now.year, class: 'form-control'} %>
+        </div>
+        <br>
+        <div class="actions">
+          <%= form.submit '招待する', class: 'devise-btn' %>
+        </div>
+      <% end %>
+      <div class="edit_form_back">
+        <%= link_to '戻る', group_path(@group), class:"btn btn-default btn-xs"%>
+      </div>
     </div>
-    <div class="actions">
-      <%= form.submit '招待する' %>
-    </div>
-  <% end %>
-  <div>
-    <%= link_to 'Back', group_path(@group) %>
   </div>
 </div>

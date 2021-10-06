@@ -1,6 +1,6 @@
 .group_image {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   margin: 0 auto;
 }
 .group_image img {
@@ -39,4 +39,15 @@
 .table td {
   text-align: center;
   vertical-align: middle;
+}
+.group_title {
+  color: #DF7861;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+.invite_info {
+  color: #ECB390;
+  text-align: center;
+  margin-bottom: 50px;
 }
