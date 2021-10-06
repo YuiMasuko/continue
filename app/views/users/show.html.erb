@@ -1,22 +1,25 @@
-<div>
-  <%= @user.name %>のマイページ</p>
-  <div>
-    <% if @user.icon? %>
-      <p class="user_icon"><%= image_tag @user.icon.url %></p>
-    <% else %>
-      <p class="user_icon"><%= image_tag ("default_user.png") %></p>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <h3 class="user_title"><%= @user.name %>のマイページ</h3>
+    <div class="user_icon">
+      <% if @user.icon? %>
+        <%= image_tag @user.icon.url, class:"uk-border-circle", size: "150x150", class:"trim-image-to-circle" %>
+      <% else %>
+        <%= image_tag ("default_user.png"), class:"trim-image-to-circle" %>
+      <% end %>
+    </div>
+    <div class="user_edit">
+      <%= link_to 'ユーザー編集', edit_user_registration_path ,class:"btn btn-default btn-xs" %>
+    </div>
+    <div class="user_group_new">
+      <%= link_to 'グループ新規作成', new_group_path,class:"btn btn-warning" %>
+    </div>
   </div>
-  <br>
-  <%= link_to 'ユーザー編集', edit_user_registration_path %>
-  <br>
-  <div>
-    <%= link_to 'グループ新規作成', new_group_path %>
-  </div>
-  <br>
-  <div>
-    <h4>所属グループ</h4>
-    <table>
+
+
+  <div class="row">
+    <h3 class="user_title">所属グループ</h3>
+    <table class="table">
       <% @groups.each do |group| %>
         <tr>
           <td class="group_image">
@@ -27,8 +30,7 @@
             <% end %>
           </td>
           <td><%= group.name %></td>
-          <td><%= group.members.count %></td>
-          <td><button type="button"><%= link_to 'グループページへ', group %></button></td>
+          <td><%= link_to 'グループページへ', group_path(group.id), class:"btn btn-default" %></td>
         </tr>
       <% end %>
     </table>
