@@ -1,8 +1,9 @@
+<br>
 <%= form_with(model: [group, post, comment]) do |form| %>
   <div>
     <%= form.text_area :content, class: "form-control", placeholder: "入力してください" %>
   </div>
   <div class="actions">
-    <%= form.submit 'コメントする' %>
+    <%= form.submit 'コメントする', class: 'devise-btn' %>
   </div>
 <% end %>

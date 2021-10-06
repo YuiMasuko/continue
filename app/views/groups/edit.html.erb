@@ -1,5 +1,7 @@
-<h1>Editing Group</h1>
+<h3 class="group_title"><%= "グループ編集 (#{@group.name}グループ)" %></h3>
 
 <%= render 'form', group: @group %>
 
-<%= link_to 'Back', group_path(@group) %>
+<div class="edit_form_back">
+  <%= link_to '戻る', group_path(@group), class:"btn btn-default btn-xs"%>
+</div>
