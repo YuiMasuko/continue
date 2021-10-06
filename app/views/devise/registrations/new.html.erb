@@ -1,53 +1,57 @@
-<h2><%= t('.sign_up') %></h2>
+<h2 class="devise-title"><%= t('.sign_up') %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="devise-form-box">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :specification %>
+      <%= '※半角6-10文字、かつ英数字をそれぞれ1文字以上含めてください' %>
+      <br>
+      <%= f.text_field :specification, autocomplete: "specification", class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :birthday %><br />
+      <%= f.date_field :birthday, autocomplete: "birthday", class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :icon %><br />
+      <%= f.file_field :icon %>
+      <%= f.hidden_field :icon_cache %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'%>
+    </div>
+
+    <div class="field">
+      <%= f.submit t('.sign_up'), class: 'devise-btn' %>
+    </div>
+  <% end %>
+
+  <div class="devise-help">
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :specification %>
-    <%= '※半角6-10文字、かつ英数字をそれぞれ1文字以上含めてください' %>
-    <br>
-    <%= f.text_field :specification, autocomplete: "specification" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday, default: Date.new(1990, 1, 1), autocomplete: "birthday" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :icon %><br />
-    <%= f.file_field :icon %>
-    <%= f.hidden_field :icon_cache %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.sign_up') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
