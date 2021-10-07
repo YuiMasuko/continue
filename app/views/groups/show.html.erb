@@ -29,9 +29,9 @@
     <table class="table">
           <td class="user_icon_group_page">
             <% if assign.user.icon? %>
-              <%= image_tag assign.user.icon.url, class:"trim-image-to-circle" %>
+              <%= image_tag assign.user.icon.url %>
             <% else %>
-              <%= image_tag ("default_user.png"), class:"trim-image-to-circle" %>
+              <%= image_tag ("default_user.png") %>
             <% end %>
           </td>
           <td id="member_column"><%= assign.user.name %></td>

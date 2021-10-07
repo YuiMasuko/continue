@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h2 class="group_title">メンバーを招待しよう！</h2>
+    <h2 class="group_title"><%= "#{@group.name}グループにメンバーを招待しよう！" %></h2>
     <p class="invite_info">情報がわからない場合は直接連絡をとってみよう★</p>
 
     <div class="image col-md-6">
@@ -30,7 +30,7 @@
         </div>
       <% end %>
       <div class="edit_form_back">
-        <%= link_to '戻る', group_path(@group), class:"btn btn-default btn-xs"%>
+        <%= link_to '戻る', group_path(@group), class:"btn btn-default" %>
       </div>
     </div>
   </div>

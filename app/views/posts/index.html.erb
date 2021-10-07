@@ -1,110 +1,55 @@
-<h3><%= @group.name %>グループ みんなの日常投稿一覧</h3>
-<br>
-<div>
-  <%= link_to '日常を投稿する(リンク)', new_group_post_path(@group) %>
+<div class="container">
+  <div class="row">
+    <h3 class="group_title"><%= @group.name %>グループ 投稿一覧</h3>
+    <div class="group_post_new">
+      <%= link_to '日常を投稿する', new_group_post_path(@group), class:"btn btn-warning" %>
+    </div>
   </div>
-<br>
-<div>
-<h5>日常投稿を絞り込む</h5>
-  <%= search_form_for @q, url:search_group_posts_path do |f| %>
-    <%= f.label :user_name_cont, "投稿者で検索" %>
-    <%= f.search_field :user_name_cont %>
 
-    <%= f.label :event_on, "日付で検索" %>
-    <%= f.date_field :event_on_gteq, include_blank: true %> 〜
-    <%= f.date_field :event_on_lteq, include_blank: true %>
-    <br>
-    <%= f.submit "検索" %>
-  <% end %>
-</div>
-
-<table>
-
-  <% @posts.includes([:user]).each do |post| %>
-    <tr>
-      <td><%= post.event_on %></td>
-      <td class="post_image">
-        <%= link_to group_post_path(post.group_id, post) do %>
-          <%= image_tag post.image.url %>
-        <% end %>
-      </td>
-      <td><%= post.content %></td>
-      <td><%= post.user.name %></td>
-      <% if post.user == current_user %>
-        <td><%= link_to 'Edit', edit_group_post_path(post.group_id, post) %></td>
-        <td><%= link_to 'Destroy', group_post_path(post.group_id, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-  <% end %>
-    </tr>
-</table>
-<div class="index_page">
-  <%= paginate @posts %>
-</div>
-
-<%= link_to 'Back', group_path(@group) %>
-
-
-
-
-<%
-=begin%>
-
-<!doctype html>
-<html lang="ja" >
-  <head>
-    <title>アルバムサンプル for Bootstrap · Bootstrap</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <link href="album.css" rel="stylesheet">
-    <link href="../example.css" rel="stylesheet">
-  </head>
-  <body >
-
-
-<main role="main">
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-md-4">
-            <% @posts.includes([:user]).each do |post| %>
-
-          <div class="card mb-4 shadow-sm">
-              <%= image_tag post.image.url %>
-              <div class="card-body">
-                <p class="card-text"><%= post.content %></p>
-                <p class="card-text"><%= post.user.name %></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                <% if post.user == current_user %>
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Edit', edit_group_post_path(post.group_id, post) %></button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Destroy', group_post_path(post.group_id, post), method: :delete, data: { confirm: 'Are you sure?' } %></button>
-                <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-            <% end %>
+  <div class="row">
+  <div class="post_search_form">
+    <div class="form-horizontal" role="form">
+      <div class="form-group">
+        <h4 class="col-md-2">絞込み検索</h4>
+        <%= search_form_for @q, url:search_group_posts_path do |f| %>
+        <div class="col-md-3">
+          <%= f.search_field :user_name_cont, class: 'form-control', placeholder: '投稿者' %>
         </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+          <%= f.date_field :event_on_gteq, include_blank: true, class: 'form-control' %>
+        </div>
+        <h5 class="col-md-1">　　〜　　</h5>
+        <div class="col-md-2">
+          <%= f.date_field :event_on_lteq, include_blank: true, class: 'form-control' %>
+        </div>
+          <%= f.submit "検索", class:"btn btn-info" %>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
 
-</main>
+  <% @posts.each do |post| %>
+    <div class="post_image">
+      <%= link_to group_post_path(post.group_id, post) do %>
+        <%= image_tag post.image.url %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
 
-<script src="../../assets/js/vendor/holder.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script>
-  window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery-slim.min.js"><\/script>')
-</script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script><script src="/docs/4.5/assets/js/vendor/anchor.min.js"></script>
-<script src="/docs/4.5/assets/js/vendor/clipboard.min.js"></script>
-<script src="/docs/4.5/assets/js/vendor/bs-custom-file-input.min.js"></script>
-<script src="/docs/4.5/assets/js/src/application.js"></script>
-<script src="/docs/4.5/assets/js/src/search.js"></script>
-<script src="/docs/4.5/assets/js/src/ie-emulation-modes-warning.js"></script>
-  </body>
-</html>
-<%
-=end%>
+
+
+
+
+<div class="index_page">
+  <%= paginate @posts %>
+</div>
+
+<div class="edit_form_back">
+  <%= link_to '戻る', group_path(@group), class:"btn btn-default" %>
+</div>
+
+</div>

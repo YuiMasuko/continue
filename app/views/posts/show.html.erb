@@ -2,18 +2,16 @@
   <div class="row">
     <div class="contents col-md-8">
       <div class="post_info">
-        <strong> 日付 : </strong>
-          <%= @post.event_on %>   /
-
-        <strong>投稿者 : </strong>
-          <%= @post.user.name %>
+        日付 :  <%= @post.event_on %>   /
+        投稿者 : <%= @post.user.name %>
+        <br>
+        <br>
+          <%= @post.content %>
         <br>
         <br>
         <p>
           <%= image_tag @post.image.url %>
         </p>
-        <strong>内容 : </strong>
-          <%= @post.content %>
       </div>
 
       <div class="button_back">
@@ -37,6 +35,6 @@
     </div>
   </div>
   <div class="edit_form_back">
-    <%= link_to '戻る', group_post_path(@group, @post), class:"btn btn-default" %>
+    <%= link_to '戻る', group_path(@group), class:"btn btn-default" %>
   </div>
 </div>
