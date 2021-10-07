@@ -9,22 +9,22 @@ RSpec.describe 'グループ機能', type: :system do
     FactoryBot.create(:assign, user: @user2, group: @group1)
   end
 
-  # describe 'グループの新規登録のテスト' do
-  #   before do
-  #     visit new_user_session_path
-  #     fill_in 'user[email]', with: 'user1@gmail.com'
-  #     fill_in 'user[password]', with: 'password'
-  #     click_button 'ログイン'
-  #   end
-  #   context 'グループの登録操作をした場合' do
-  #     it 'グループが作成され、グループページに遷移する' do
-  #     click_link 'グループ新規作成'
-  #     fill_in 'group[name]', with: 'group_new'
-  #     click_button '実行'
-  #     expect(page).to have_content 'group_newグループ'
-  #     end
-  #   end
-  # end
+  describe 'グループの新規登録のテスト' do
+    before do
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'user1@gmail.com'
+      fill_in 'user[password]', with: 'password'
+      click_button 'ログイン'
+    end
+    context 'グループの登録操作をした場合' do
+      it 'グループが作成され、グループページに遷移する' do
+      click_link 'グループ新規作成'
+      fill_in 'group[name]', with: 'group_new'
+      click_button '実行'
+      expect(page).to have_content 'group_newグループ'
+      end
+    end
+  end
 
   # describe 'グループ編集のテスト' do
   #   before do
@@ -79,29 +79,48 @@ RSpec.describe 'グループ機能', type: :system do
   #   end
   # end
 
-  describe 'グループ招待のテスト' do
+  # describe 'グループ招待のテスト' do
+  #   before do
+  #     visit new_user_session_path
+  #     fill_in 'user[email]', with: 'user1@gmail.com'
+  #     fill_in 'user[password]', with: 'password'
+  #     click_button 'ログイン'
+  #     click_link 'グループページへ'
+  #   end
+  #   context '招待したいユーザーのidと誕生日を入力した場合' do
+  #     it '一致すると、グループに招待できる' do
+  #       click_link 'メンバー招待'
+  #       fill_in 'specification', with: 'user02'
+  #       fill_in 'birthday', with: '001990-01-02'
+  #       click_on '招待する'
+  #       expect(page).to have_content 'user2'
+  #     end
+  #     it '一致しないと、グループに招待できない' do
+  #       click_link 'メンバー招待'
+  #       fill_in 'specification', with: 'user00'
+  #       fill_in 'birthday', with: '001990-01-02'
+  #       click_on '招待する'
+  #       expect(page).to have_content 'ユーザーが見つかりませんでした'
+  #     end
+  #   end
+  # end
+
+  describe 'アクセス制限のテスト' do
     before do
+      @group2 = FactoryBot.create(:group2)
       visit new_user_session_path
       fill_in 'user[email]', with: 'user1@gmail.com'
       fill_in 'user[password]', with: 'password'
       click_button 'ログイン'
-      click_link 'グループページへ'
     end
-    context '招待したいユーザーのidと誕生日を入力した場合' do
-      it '一致すると、グループに招待できる' do
-        click_link 'メンバー招待'
-        fill_in 'specification', with: 'user02'
-        fill_in 'birthday', with: '001990-01-02'
-        click_on '招待する'
-        expect(page).to have_content 'user2'
-      end
-      it '一致しないと、グループに招待できない' do
-        click_link 'メンバー招待'
-        fill_in 'specification', with: 'user00'
-        fill_in 'birthday', with: '001990-01-02'
-        click_on '招待する'
-        expect(page).to have_content 'ユーザーが見つかりませんでした'
+    context '所属していないグループのページに遷移しようとした場合' do
+      it 'アクセス制限がかかり、遷移することができない' do
+        visit group_path(@group2)
+        expect(page).to have_content '見られません'
       end
     end
   end
+
+
+
 end
