@@ -360,7 +360,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   seed-fu
-  selenium-webdriver
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
