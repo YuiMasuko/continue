@@ -1,6 +1,6 @@
+<div class="container">
 <h2 class="devise-title"><%= t('.title', resource: resource.model_name.human) %></h2>
 
-<div class="devise-form-box">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -65,19 +65,17 @@
       <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
     </div>
     <br>
-    <div class="form">
+    <div class="actions">
       <%= f.submit t('.update'), class: 'devise-btn' %>
     </div>
     <br>
     <br>
     <br>
-
-
-    <div class="cancel">
+  <% end %>
+    <div class="edit_form_back">
       <%= button_to t('.cancel_my_account'), registration_path(resource_name), class:"btn btn-danger btn-xs", data: { confirm: t('.are_you_sure') }, method: :delete %>
     </div>
-  <% end %>
-</div>
-<div class="edit_form_back">
-  <%= link_to '戻る', root_path, class:"btn btn-default" %>
+    <div class="edit_form_back">
+      <%= link_to '戻る', root_path, class:"btn btn-default" %>
+    </div>
 </div>
