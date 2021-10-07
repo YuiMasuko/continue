@@ -132,3 +132,14 @@ Post.seed do |s|
   s.user_id = 1
   s.group_id = 1
 end
+
+10.times do |n|
+  Post.seed do |s|
+    s.id = "#{n+16}"
+    s.event_on = Faker::Date.in_date_period(year: 2020, month: 8)
+    s.image  = Rails.root.join("db/fixtures/images/post_1.jpg").open
+    s.content = Faker::JapaneseMedia::StudioGhibli.quote
+    s.user_id = 1
+    s.group_id = 1
+  end
+end

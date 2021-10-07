@@ -1,5 +1,7 @@
-<h1>New Post</h1>
+<h3 class="post_title"><%= "日常投稿 (#{@group.name}グループ)" %></h3>
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Back', group_posts_path %>
+<div class="edit_form_back">
+  <%= link_to '戻る', group_path(@group), class:"btn btn-default" %>
+</div>

@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validate :date_check
 
   def date_check
+    return if event_on.blank?
     errors.add(:event_on, "未来の日付は登録できません") if event_on > Date.today
   end
 

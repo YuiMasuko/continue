@@ -1,30 +1,40 @@
-<p>
-  <strong>Event on:</strong>
-  <%= @post.event_on %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="contents col-md-8">
+      <div class="post_info">
+        日付 :  <%= @post.event_on %>   /
+        投稿者 : <%= @post.user.name %>
+        <br>
+        <br>
+          <%= @post.content %>
+        <br>
+        <br>
+        <p>
+          <%= image_tag @post.image.url %>
+        </p>
+      </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+      <div class="button_back">
+        <% if @post.user == current_user %>
+          <%= link_to '投稿編集', edit_group_post_path(@post.group_id, @post), class:"btn btn-warning" %>
+        <% end %>
+      </div>
 
-<p>
-  <%= image_tag @post.image.url %>
-</p>
+    </div>
 
-<div>
-  <h4>コメント</h4>
-  <div id="comments_area">
-    <%= render 'comments/index', comments: @comments, post: @post, group: @group %>
+    <div class="contents col-md-4">
+      <div class="post_title">
+        <h3>コメント</h3>
+        <div id="comments_area">
+          <%= render 'comments/index', comments: @comments, post: @post, group: @group %>
+        </div>
+        <% if user_signed_in? %>
+          <%= render 'comments/form', comment: @comment, post: @post, group: @group %>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <% if user_signed_in? %>
-    <%= render 'comments/form', comment: @comment, post: @post, group: @group %>
-  <% end %>
+  <div class="edit_form_back">
+    <%= link_to '戻る', group_path(@group), class:"btn btn-default" %>
+  </div>
 </div>
-
-<% if @post.user == current_user %>
-  <%= link_to 'Edit', edit_group_post_path(@post.group_id, @post) %>
-<% end %>
-
-<br>
-<%= link_to 'Back', group_posts_path %>

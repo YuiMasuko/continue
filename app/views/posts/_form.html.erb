@@ -1,36 +1,39 @@
-<%= form_with(model: [@group, @post], local: true) do |form| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="container">
+  <%= form_with(model: [@group, @post], local: true) do |form| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :date %>
+      <%= form.date_field :event_on, class: 'form-control' %>
+    </div>
+
+
+    <div class="field">
+      <%= form.label :image %>
+      <% if @post.image? %>
+        <%= image_tag @post.image.url %>
       <% end %>
-      </ul>
+      <%= form.hidden_field :image_cache %>
+      <%= form.file_field :image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_area :content, class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit '投稿する', class: 'devise-btn' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :event_on %>
-    <%= form.date_select :event_on, {}, {class: 'form-control', style: 'display: inline-block;width: auto;'} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <% if @post.image? %>
-      <%= image_tag @post.image.url %>
-    <% end %>
-    <%= form.hidden_field :image_cache %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
