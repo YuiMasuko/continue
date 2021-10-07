@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'ユーザー管理機能', type: :system do
+RSpec.describe 'ユーザー機能', type: :system do
 
   describe 'ユーザー登録のテスト' do
     context 'ユーザー登録操作をした場合' do
