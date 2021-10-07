@@ -17,7 +17,7 @@ class AssignsController < ApplicationController
   def destroy
     assign = Assign.find(params[:id])
     if Assign.where(group_id: assign.group.id).count == 1
-      redirect_to group_path(assign.group.id), notice: 'メンバーがいなくなるため、退会する場合はグループを削除してください'
+      redirect_to group_path(assign.group.id), notice: 'メンバーがいなくなるため、退会できません、、、！'
     else
       assign.destroy
       redirect_to user_path(current_user.id), notice: 'グループから退会しました'
