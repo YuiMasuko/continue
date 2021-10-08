@@ -1,41 +1,19 @@
-<div>
-  <%= search_form_for @q, url:search_group_posts_path do |f| %>
-    <%= f.label :user_name_cont, "投稿者" %>
-    <%= f.search_field :user_name_cont %>
+<div class="container">
+  <div class="row">
+    <h3 class="group_title"><%= @group.name %>グループ 投稿一覧 / 絞り込み</h3>
 
-    <%= f.label :event_on %>
-    <%= f.date_field :event_on_gteq, include_blank: true %> 〜
-    <%= f.date_field :event_on_lteq, include_blank: true %>
-    <br>
-    <%= f.submit "検索" %>
-  <% end %>
-</div>
-<table>
-  <tr>
-    <th>Event on</th>
-    <th>Content</th>
-    <th colspan="1"></th>
-    <th>User</th>
-    <th colspan="3"></th>
-  </tr>
 
   <% @results.includes([:user]).each do |result| %>
-    <tr>
-      <td><%= result.event_on %></td>
-      <td class="post_image">
+    <div class="post_image">
         <%= link_to group_post_path(result.group_id, result) do %>
           <%= image_tag result.image.url %>
         <% end %>
-      </td>
-      <td><%= result.content %></td>
-      <td><%= result.user.name %></td>
-      <td><%= link_to 'Show', group_post_path(result.group_id, result) %></td>
-      <% if result.user == current_user %>
-        <td><%= link_to 'Edit', edit_group_post_path(result.group_id, result) %></td>
-        <td><%= link_to 'Destroy', group_post_path(result.group_id, result), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
+      <%= result.event_on %> / <%= result.user.name %>
+    </div>
   <% end %>
-    </tr>
-</table>
+  </div>
 
-<%= link_to 'Back', group_path(@group) %>
+  <div class="edit_form_back">
+    <%= link_to '戻る', group_posts_path(@group), class:"btn btn-default" %>
+  </div>
+</div>
