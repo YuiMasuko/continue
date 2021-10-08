@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'ユーザーモデル機能', type: :model do
+RSpec.describe 'Userモデル機能', type: :model do
   describe 'バリデーションのテスト' do
 
     context '名前/メールアドレス/ユーザーID/誕生日/パスワード/確認用パスワードが入力された場合' do

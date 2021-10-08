@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'グループモデル機能', type: :model do
+RSpec.describe 'Groupモデル機能', type: :model do
   describe 'バリデーションのテスト' do
 
     context '名前が空の場合' do
