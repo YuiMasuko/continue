@@ -24,6 +24,12 @@ RSpec.describe 'コメント機能', type: :system do
         expect(page).to have_content 'new_comment'
       end
     end
+    context 'コメントを入力せずに「コメントする」を押した場合' do
+      it 'コメントは作成されない' do
+        click_on 'コメントする'
+        expect(Comment.count).to eq 0
+      end
+    end
     context '削除ボタンを押した場合' do
       before do
         fill_in 'comment[content]', with: 'destroy_test'
@@ -32,6 +38,22 @@ RSpec.describe 'コメント機能', type: :system do
       it 'コメントが削除される' do
         click_link '削除'
         expect(page).to have_no_content 'destroy_test'
+      end
+    end
+  end
+  describe 'アクセス制限のテスト' do
+    before do
+      @group2 = FactoryBot.create(:group2)
+      @post2 = FactoryBot.create(:post1, user: @user2, group: @group2)
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'user1@gmail.com'
+      fill_in 'user[password]', with: 'password'
+      click_button 'ログイン'
+    end
+    context '所属していないグループの投稿詳細に、コメントしようと遷移した場合' do
+      it 'アクセス制限がかかり、コメントすることができない' do
+        visit group_post_path(@group2, @post2)
+        expect(page).to have_content '見られません'
       end
     end
   end

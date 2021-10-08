@@ -1,5 +1,6 @@
 require 'rails_helper'
 RSpec.describe 'Groupモデル機能', type: :model do
+
   describe 'バリデーションのテスト' do
 
     context '名前が空の場合' do
@@ -10,7 +11,7 @@ RSpec.describe 'Groupモデル機能', type: :model do
     end
     context '名前が75文字以上の場合' do
       it 'バリデーションに引っかかる' do
-        group = FactoryBot.build(:group1, name: '1234567890123456789012345678901234567890123456789012345678901234567890123456')
+        group = FactoryBot.build(:group1, name: 'g'*76)
         expect(group).not_to be_valid
       end
     end

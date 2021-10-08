@@ -16,7 +16,7 @@ RSpec.describe 'Userモデル機能', type: :model do
     end
     context '名前が20文字以上の場合' do
       it 'バリデーションに引っかかる' do
-        user = FactoryBot.build(:user1, name: '123456789_123456789_1')
+        user = FactoryBot.build(:user1, name: 'n'*21)
         expect(user).not_to be_valid
       end
     end
@@ -71,7 +71,7 @@ RSpec.describe 'Userモデル機能', type: :model do
     end
     context 'パスワードが20文字以上の場合' do
       it 'バリデーションに引っかかる' do
-        user = FactoryBot.build(:user1, password: '123456789012345678901')
+        user = FactoryBot.build(:user1, password: 'p'*21)
         expect(user).not_to be_valid
       end
     end

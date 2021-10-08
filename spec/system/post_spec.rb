@@ -85,4 +85,19 @@ RSpec.describe '日常投稿機能', type: :system do
       end
     end
   end
+  describe 'アクセス制限のテスト' do
+    before do
+      @group2 = FactoryBot.create(:group2)
+      visit new_user_session_path
+      fill_in 'user[email]', with: 'user1@gmail.com'
+      fill_in 'user[password]', with: 'password'
+      click_button 'ログイン'
+    end
+    context '所属していないグループの投稿一覧ページに遷移しようとした場合' do
+      it 'アクセス制限がかかり、遷移することができない' do
+        visit group_posts_path(@group2)
+        expect(page).to have_content '見られません'
+      end
+    end
+  end
 end
