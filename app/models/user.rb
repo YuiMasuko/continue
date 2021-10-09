@@ -10,6 +10,13 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 20 }
   validates :specification, presence: true, length: { in: 6..10 }, format: { with: VALID_SPECIFICATION_REGEX, message: "は半角6~10文字で英数字それぞれ１文字以上含む必要があります"}
   validates :birthday, presence: true
+  validate :date_check
+
+  def date_check
+    return if birthday.blank?
+    errors.add(:birthday, "：未来の日付は誕生日として登録できません") if birthday > Date.today
+  end
+
 
   has_many :assigns, dependent: :destroy
   has_many :groups, through: :assigns
