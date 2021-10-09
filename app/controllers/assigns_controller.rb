@@ -23,5 +23,4 @@ class AssignsController < ApplicationController
       redirect_to user_path(current_user.id), notice: 'グループから退会しました'
     end
   end
-
 end
