@@ -94,5 +94,11 @@ RSpec.describe 'Userモデル機能', type: :model do
         expect(user).not_to be_valid
       end
     end
+    context '誕生日に未来の日付を入力した場合' do
+      it 'バリデーションに引っかかる' do
+        user = FactoryBot.build(:user1, birthday: '2040-01-01')
+        expect(user).not_to be_valid
+      end
+    end
   end
 end
