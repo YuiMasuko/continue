@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   def date_check
     return if birthday.blank?
-    errors.add(:birthday, "未来の日付は誕生日として登録できません") if birthday > Date.today
+    errors.add(:birthday, "：未来の日付は誕生日として登録できません") if birthday > Date.today
   end
 
 
