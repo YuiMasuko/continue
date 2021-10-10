@@ -22,3 +22,4 @@ ja:
       post:
         event_on: 日付(date)
         image: 画像(image)
+        post: 投稿
