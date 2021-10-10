@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   private
   def group_member_check
     unless @group.members.include?(current_user)
-      redirect_to user_path(current_user.id), notice:"そのグループに所属していないので見られません"
+      redirect_to user_path(current_user.id), alert: "そのグループに所属していないので見られません"
     end
   end
 

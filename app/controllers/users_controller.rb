@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if current_user == @user
       @groups = current_user.groups
     else
-      redirect_to user_path(current_user.id), notice: '他の人のマイページは見られません！'
+      redirect_to user_path(current_user.id), alert: '他の人のマイページは見られません！'
     end
   end
 

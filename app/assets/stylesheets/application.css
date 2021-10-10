@@ -25,3 +25,21 @@
   position: fixed;
   text-align: center;
 }
+
+  header {
+  height: 30px;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: table;
+  position: fixed;
+  text-align: center;
+}
+
+  .container-fluid {
+    background-color: #ECB390;
+  }
+
+  .main {
+    padding-top: 40px;
+  }

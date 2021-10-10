@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def edit
     if current_user != @post.user
-      redirect_to group_posts_path(@group), notice: '自分投稿のみ編集できます！'
+      redirect_to group_posts_path(@group), alert: '自分投稿のみ編集できます！'
     end
   end
 
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   def search
     @q = Post.ransack(params[:q])
     @results = @q.result(distinct: true).where(group_id: @group.id).page(params[:page])
-    redirect_to group_posts_path(@group.id), notice: '該当する投稿がありませんでした！' if @results == []
+    redirect_to group_posts_path(@group.id), alert: '該当する投稿がありませんでした！' if @results == []
   end
 
 

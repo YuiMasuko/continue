@@ -43,16 +43,17 @@
       </nav>
     </header>
 
-    <div class="alert-space">
-      <% if notice %>
-        <p class="alert alert-info"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
+    <div class="main">
+      <div class="alert-space">
+        <% if notice %>
+          <p class="alert alert-info"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+      </div>
+      <%= yield %>
     </div>
-
-    <%= yield %>
 
     <footer>
       <h5>©Continue 2021 Copyright</h5>

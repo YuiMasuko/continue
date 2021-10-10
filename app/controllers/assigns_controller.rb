@@ -2,11 +2,11 @@ class AssignsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    #招待機能
     group = Group.find(params[:group_id])
     user = User.find_by(specification: params[:specification])
-
-    if group.members.exists?(user.id)
+    if params[:specification].empty? || params[:birthday].empty?
+      redirect_to invite_group_path(group), alert: 'idと誕生日を入力してください'
+    elsif group.members.find_by(specification: params[:specification])
       redirect_to group_path(group), notice: '既にメンバーに招待済みです！'
     elsif user && user.birthday.strftime('%Y-%m-%d') == params[:birthday]
       group.invite_member(user)
@@ -14,7 +14,6 @@ class AssignsController < ApplicationController
     else
       redirect_to group_path(group), notice: 'ユーザーが見つかりませんでした'
     end
-
   end
 
   def destroy
@@ -26,5 +25,4 @@ class AssignsController < ApplicationController
       redirect_to user_path(current_user.id), notice: 'グループから退会しました'
     end
   end
-
 end
