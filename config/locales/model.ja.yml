@@ -19,3 +19,6 @@ ja:
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
         password_change: パスワード変更
+      post:
+        event_on: 日付(date)
+        image: 画像(image)
