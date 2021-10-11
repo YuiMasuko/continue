@@ -3,6 +3,7 @@ ja:
     models:
       blog: ブログ
       user: ユーザー
+      post: 日常投稿
     attributes:
       blog:
         title: タイトル
